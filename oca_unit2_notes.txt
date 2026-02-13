@@ -1,0 +1,66 @@
+[*] normal operator = java promotes type
+    compound operator = java promotes type and auto casts
+
+eg: double x = 5;
+    int y = 3;
+    y = y+x -> compilation error as result is double being stored in int
+
+    y+=x  -> wont give error as java converts result to math the type of operand on left side
+
+------------------------------------------
+conditions must be boolean in java unlike cpp where numbers like 0 or 1 can be trated as true/false
+    if(5){} => invalid in java
+the condition can be an expression that evaluates to true
+
+------------------------------------------
+[*]switch doest allow float, long, double, boolean types: Because switch works using exact matching, and floating 
+types can cause precision problems.
+if used throws compilation errors
+
+[*]compile time constant - value that is final, assigned immediately and know during compilation
+
+    final String s = "Test";
+    switch(name) {
+        case s:   // OK                 ====> compiles So Java replaces case s: with: case "Test":
+    }   
+
+
+    ====> This Does NOT Compile
+    String s = "Test";
+
+    switch(name) {
+        case s:   // ERROR
+    }
+
+===> Even This Fails
+final String s;
+s = "Test";
+
+case s:  // ❌
+Why? ==> Because it was not assigned immediately at declaration.
+For compile-time constant, it must be:        final String s = "Test";
+
+
+[*]Fall through = once a case mathes, execution starts there and continues till *break or *switch ends
+-------------------------------------------------
+enhanced for loops works only for arrays and collections
+
+-----------------------------------------------
+we can assign values to variables used inside loop conditions
+
+
+----------------------------------------------
+int z = x < 5 ? ++x : y++;
+here z = 1 as x is assigned forst and then incremented
+---------------------------------------------
+without {} while controls only 1 block
+int x = 0;
+while(x < 3)
+    x++;
+System.out.println(x);
+o/p = 3
+
+------------------------------------------------------
+super and this should be the first statements
+super calls parent constructor
+this calls another constructor

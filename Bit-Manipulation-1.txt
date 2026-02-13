@@ -1,0 +1,363 @@
+//Write a java program to perform left shift on given integer by 1 position
+
+Example 1:
+Input = 4
+output = 8
+
+Example 2:
+Input = 10
+Output = 20
+import java.util.*;
+class Test{
+    public static void main (String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.println(n*2);
+        /* code */
+    }
+}
+
+
+-----------------
+// Write a java Program to perform bitwise OR operation on two integers and print the result.
+import java.util.*;
+class OROperation{
+    public static void main (String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+        System.out.println(n|m);
+    }
+}
+
+----------------------
+// Write a Java program to count the number of bits of an integer.
+import java.util.*;
+class CountofBits{
+    public static void main (String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        
+        int count = 0;
+        while(n>0){
+            // n&=n-1;
+            // count++;
+            int res = n & 1;
+            if(res == 1)count ++;
+            n = n>>1;
+        }
+        System.out.println(count);
+    }
+}
+
+---------------------------------------------------
+---------------------------------------------------
+You are given an integer N. Your task is to return an array ans of length N + 1 
+where each ans[i] represents the number of 1's in the binary representation of i.
+
+Input Format:
+--------------
+A single integer N, representing the range from 0 to N.
+
+Output Format:
+---------------
+An array of N+1 integers where each element represents the count of 1s in the 
+binary representation of each number from 0 to N.
+
+Sample Input-1:
+---------------
+2
+
+Sample Output-1:
+----------------
+[0,1,1]
+
+Explanation:
+------------
+0 --> 0
+1 --> 1
+2 --> 10
+
+Sample Input-2:
+---------------
+5
+
+Sample Output-2:
+--------------- 
+[0,1,1,2,1,2]
+
+Explanation:
+------------
+0 --> 0
+1 --> 1
+2 --> 10
+3 --> 11
+4 --> 100
+5 --> 101
+
+
+import java.util.*;
+class CountingBits{
+    public static void main (String[] args) {
+        /* code */
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int arr[] = new int[n+1];
+       
+        
+        int[]res = new int[n+1];
+        
+        for(int i = 0; i<n+1; i++){
+            int cnt = 0;
+            int a = i;
+            while(a>0){
+                a = a & (a-1);
+                cnt++;
+            }
+            res[i] = cnt;
+        }
+        System.out.println(Arrays.toString(res));
+        
+    }
+}
+
+
+
+-------------------------------------------------------
+-------------------------------------------------------
+Check if a number is even or odd
+Note: Use Bitwise operation - AND
+
+Example1:
+------------
+input=4
+output=true
+
+import java.util.*;
+class Test{
+    public static void main (String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        
+        int res = n&1;
+        if(res == 1){
+            System.out.println(false);
+            return;
+        }
+        System.out.println(true);
+    
+    }
+}
+
+-----------------------------------------------
+-----------------------------------------------
+/*Single Number- Find the element in an array that is not repeated.*/
+
+Sample Input:
+4 1 2 9 1 4 2
+
+Sample Output:
+9
+
+import java.util.*;
+class SingleNumber{
+    
+    public static int unique(int[] arr, int n){
+        
+        for(int i = 0; i<n; i++){
+            boolean check = false;
+            
+            for(int j = 0; j<n; j++){
+                if(i == j )continue;
+                if((arr[i]^arr[j]) == 0) check = true;
+            }
+            if(check!=true)return arr[i];
+        }
+        return -1;
+    }
+    
+    public static void main (String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int arr[] = new int[n];
+        for(int i = 0; i<n; i++){
+            arr[i] = sc.nextInt();
+        }
+        int res = unique(arr,n);
+        System.out.println(res);
+    }
+}
+
+----------------------------------------------------
+----------------------------------------------------
+
+// Write a java Program to perform right shift on given integer by 1 Position.
+
+Examples-1:
+-----------
+Input=4
+Output=2
+
+
+import java.util.*;
+class Test{
+    public static void main (String[] args) {
+        
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.println(n/2);
+        
+    }
+}
+
+-----------------------------------------------
+-----------------------------------------------
+
+Find the position of the first set bit (bit equal to 1) in the binary 
+representation of a positive integer.
+The position counting starts from 1 at the least significant bit (rightmost bit).
+
+If the number is 0, then no set bit exists and the program should return 0.
+If no set bit is found during iteration, return -1.
+
+Example 1:
+---------------
+Input: 18
+Binary of 18 → 10010
+Positions from right → 1 2 3 4 5
+Rightmost 1 is at position 2
+Output: 2
+
+--------------------------------------------------------
+--------------------------------------------------------
+
+
+28-01-26
+
+You are given an integer n.
+Return all numbers in the range 1 to n whose binary representation contains 
+only set bits (1s).
+
+Example:
+Input = 7
+Output = 1 3 7
+
+import java.util.*;
+class CompleteSetBits{
+    public static void main (String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        
+        for(int i = 1; i<n+1; i++){
+            if(isSetBit(i)){
+                System.out.print(i+" ");
+            }
+        }
+    }
+    
+    public static boolean isSetBit(int i){
+        // String binary = Integer.toBinaryString(i);
+        
+        while(i > 0){
+            int res = i & 1;
+            
+            if(res == 0) return false;
+            i = i >> 1;
+        }
+        return true;
+    }
+}
+
+-----------------------------------------------
+-----------------------------------------------
+
+
+You are given an integer n.
+Your task is to print all numbers from 0 to n (inclusive) whose binary 
+representation is a palindrome.
+
+Example:
+n=7
+Output is 0 1 3 5 7
+
+import java.util.*;
+class BinaryPalindrome{
+    public static void main (String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        
+        for(int i = 0; i<n+1; i++){
+            if(isPalindrome(i)){
+                System.out.print(i+" ");
+            }
+        }
+    }
+    
+    public static boolean isPalindrome(int i){
+        String binary = Integer.toBinaryString(i);
+        int left = 0;
+        int right = binary.length() -1;
+        while(left< binary.length() && right>=0 && left<=right){
+            if(binary.charAt(left) != binary.charAt(right)){
+                return false;
+            }
+            left++;
+            right--;
+        }
+        return true;
+    }
+}
+
+-------------------------------------------------------
+-------------------------------------------------------
+
+AlphaCipher is a string formed from another string by rearranging its letters
+
+You are given a string S.
+Your task is to check, can any one of the AlphaCipher is a palindrome or not.
+
+Input Format:
+-------------
+A string S
+
+Output Format:
+--------------
+Print a boolean value.
+
+
+Sample Input-1:
+---------------
+carrace
+
+Sample Output-1:
+----------------
+true
+
+
+Sample Input-2:
+---------------
+code
+
+Sample Output-2:
+----------------
+false
+
+import java.util.*;
+class PalindromePermutation{
+    public static void main (String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.next();
+        System.out.println(isPalindrome(str));
+    }
+    
+    public static boolean isPalindrome(String str){
+        int mask = 0;
+        for(int i = 0; i<str.length(); i++){
+            char ch = str.charAt(i);
+            int bit = ch - 'a';
+            mask ^= 1<< bit;
+            }
+        return (mask == 0 || (mask & mask-1) == 0);
+    }
+}
+

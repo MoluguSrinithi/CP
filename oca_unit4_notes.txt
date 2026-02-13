@@ -1,0 +1,17 @@
+functional interface = interface with 1 abstract method
+Lambda Expressions: if {} after -> then you should write "return"
+if we write @FunctionalInterface before an interface then the interface is no longer functional
+@ are called annotations that provide extra context for jvm
+predicates = have test method = > evaluate to true => filtering
+
+[*]When Java sees multiple overloaded methods, it chooses the match in this priority:
+
+1️⃣ Exact match
+2️⃣ Widening primitive
+3️⃣ Autoboxing
+4️⃣ Vara
+
+--------------------
+Review Questions
+1. B,C
+2. A,D,
