@@ -1,50 +1,25 @@
-// import java.time.*;
-// import java.time.format.*;
-// class Test1 {
+class Parent {
 
-//   public static void main(String[] args) {
+    final void m1() {
 
-//     LocalDateTime dt = LocalDateTime.now();
+        System.out.println("Parent");
 
-    
-
-//    DateTimeFormatter f1 =
-
-//       DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM);
-
-
-
-//     DateTimeFormatter f2 =
-
-//       DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT);
-
-
-
-//     System.out.println(f1.format(dt));
-
-//     System.out.println(f2.format(dt));
-
-//   }
-
-// }
-
-// public class Test1 {
-//     static int x = 5;
-
-//     public static void main(String[] args) {
-//         int x = (x = 3);
-//         System.out.println(x);
-//     }
-// }
-
-import java.util.*;
-class Test1 {
-    String s;
-
-    public static void main(String[] args) {
-        Test t1 = new Test();
-        Test t2 = t1;
-        t1 = null;
-        System.out.println(t2.s);
     }
+
+}
+
+class Child extends Parent {
+
+    void m1() {
+
+        System.out.println("Child");
+
+    }
+
+}
+
+public class Test1 {
+
+    public static void main(String[] args) {}
+
 }
